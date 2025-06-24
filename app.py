@@ -340,6 +340,24 @@ with col3:
     st.markdown("#### 🧠 Reference Bubble Diagram")
     draw_interactive(user_df, user_adjacencies)
 
+    # 📋 Reference Room Table
+    st.markdown("##### 📐 User Room Reference Table")
+    
+    room_summary = []
+    for _, row in user_df.iterrows():
+        dims = row["Area (L x W = A)"].split("=")[0].split("x")
+        length = dims[0].strip().replace("'", "")
+        width = dims[1].strip().replace("'", "")
+        area = int(length) * int(width)
+        room_summary.append({
+            "Room": row["Room"],
+            "Length (ft)": length,
+            "Width (ft)": width,
+            "Area (sqft)": area
+        })
+    st.dataframe(pd.DataFrame(room_summary), use_container_width=True)
+
+
 
 # ---------- Shape Metadata + Display ----------
 if canvas_result.json_data and "objects" in canvas_result.json_data:
