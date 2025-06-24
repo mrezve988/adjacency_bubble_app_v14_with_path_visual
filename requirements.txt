@@ -6,3 +6,4 @@ networkx
 scikit-learn
 kaleido
 streamlit-drawable-canvas
+chromium
