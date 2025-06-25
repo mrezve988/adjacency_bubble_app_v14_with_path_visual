@@ -1,7 +1,7 @@
 streamlit
 pandas
 pyvis
-plotly
+plotly>=5.0.0
 networkx
 scikit-learn
 kaleido
